@@ -115,12 +115,10 @@ install_yarn() {
 }
 
 install_and_cache_deps() {
-  cd $assets_dir
-
-  if [ -d $cache_dir/node_modules ]; then
+  if [ -d node_modules ]; then
     info "Loading node modules from cache"
     mkdir node_modules
-    cp -R $cache_dir/node_modules/* node_modules/
+    cp -R node_modules/* node_modules/
   fi
 
   info "Installing node modules"
@@ -133,7 +131,7 @@ install_and_cache_deps() {
   info "Caching node modules"
   cp -R node_modules $cache_dir
 
-  PATH=$assets_dir/node_modules/.bin:$PATH
+  PATH=$pwd/node_modules/.bin:$PATH
 
   install_bower_deps
 }
