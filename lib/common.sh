@@ -44,12 +44,8 @@ load_config() {
     # Check phoenix custom sub-directory for package.json
     info "* package.json found in custom directory"
   elif [ -f "$phoenix_dir/package.json" ]; then
-    # Check phoenix root directory for package.json, phoenix 1.2.x and prior
-    info "WARNING: package.json detected in root "
-    info "* assuming phoenix 1.2.x or prior, please check config file"
-
-    assets_path=.
-    phoenix_ex=phoenix
+    # Check phoenix root directory for package.json
+    info "* package.json found in custom directory"
   else
     # Check phoenix custom sub-directory for package.json, phoenix 1.3.x and later
     info "WARNING: no package.json detected in root nor custom directory"
